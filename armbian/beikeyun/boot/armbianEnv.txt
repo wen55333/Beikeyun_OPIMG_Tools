@@ -1,5 +1,0 @@
-verbosity=7
-overlay_prefix=rockchip
-rootdev=UUID=14515296-ecdd-401d-995e-f42eb41d326b
-rootfstype=ext4
-fdtfile=rk3328-beikeyun.dtb

@@ -11,6 +11,12 @@ loop=
 
 
 echo  -e "\n贝壳云Openwrt镜像制作工具"
+#检测root权限
+if [ $UID -ne 0 ];then
+echo -e "$red \n 错误：请使用root用户或sudo执行此脚本！$white" && exit
+fi
+
+
 #清理重建目录
 if [ -d $out_dir ]; then
     sudo rm -rf $out_dir
@@ -99,7 +105,9 @@ echo "p1uuid:$p1uuid"
 
 # 拷贝文件到启动镜像
 cd ../
-
+    #创建armbianEnv.txt
+    sudo rm -rf armbian/beikeyun/boot/armbianEnv.txt
+    sudo touch armbian/beikeyun/boot/armbianEnv.txt
     #写入UUID到armbianEnv
     sudo echo "verbosity=7">armbian/beikeyun/boot/armbianEnv.txt
     sudo echo "overlay_prefix=rockchip">>armbian/beikeyun/boot/armbianEnv.txt

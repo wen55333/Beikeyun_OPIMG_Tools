@@ -92,7 +92,7 @@ sudo mkfs.ext4 $loopp1 > /dev/null 2>&1
     #获取分区1UUID
 p1uuid=$(sudo tune2fs -l $loopp1|grep UUID|awk '{print $3}')
     #设定分区目录挂载路径
-rootfs_dir=/media/ubuntu/$p1uuid
+rootfs_dir=/media/$p1uuid
     #删除重建目录
 sudo rm -rf $rootfs_dir
 sudo mkdir $rootfs_dir
